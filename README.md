@@ -51,6 +51,7 @@ Chinese-Postman-Metaheuristics/
 │ └─ solution_validator.py
 │
 ├─ graph_generator.py
+├─ LICENSE
 ├─ pyproject.toml
 └─ README.md
 
