@@ -19,6 +19,7 @@ The repository contains implementations of:
 
 ## Project structure:
 
+```text
 Chinese-Postman-Metaheuristics/
 ├─ demo/
 │ └─ cpp_metaheuristics_demo.ipynb
@@ -54,47 +55,48 @@ Chinese-Postman-Metaheuristics/
 ├─ LICENSE
 ├─ pyproject.toml
 └─ README.md
+```
 
 ## Installation:
 
 Clone the repository and install the package using:
 
-pip install -e .
+`pip install -e .`
 
 The cppsolver package requires:
 
 - numpy
 - matplotlib
 
-These dependencies are specified in pyproject.toml.
+These dependencies are specified in `pyproject.toml`.
 
 Optuna is additionally required to run the hyperparameter-tuning experiment:
 
-pip install optuna
+`pip install optuna`
 
 ## Demo:
 
-The demo/ directory contains cpp_metaheuristics_demo.ipynb, a Jupyter notebook demonstrating the functionality of the implemented algorithms on example graph instances.
+The `demo/` directory contains `cpp_metaheuristics_demo.ipynb`, a Jupyter notebook demonstrating the functionality of the implemented algorithms on example graph instances.
 
 ## Experiments:
 
-The hyperparameters of each algorithm were tuned using a 20-trial Optuna study. Each trial minimised the mean tour cost over five runs on graph100.txt, using Bayesian optimisation.
+The hyperparameters of each algorithm were tuned using a 20-trial Optuna study. Each trial minimised the mean tour cost over five runs on `graph100.txt`, using Bayesian optimisation.
 
 The experiment is implemented in:
 
-experiments/hyperparameter_tuning.py
+`experiments/hyperparameter_tuning.py`
 
 The resulting hyperparameter study can be found in:
 
-results/hyperparameters.jpg
+`results/hyperparameters.jpg`
 
 ## Graph generation:
 
-The graph instances used in the experiments are included in the graphs/ directory.
+The graph instances used in the experiments are included in the `graphs/` directory.
 
 Additional graph instances can be generated using:
 
-graph_generator.py
+`graph_generator.py`
 
 ## Results:
 
@@ -102,14 +104,16 @@ Tables of results under different computational budgets are provided in the resu
 
 Overall, ACO and the two hybrid algorithms show the strongest performance in terms of mean tour cost and spread. JSO showed the weakest performance among the implemented algorithms.
 
-Mann-Whitney U tests were performed comparing ACO with the two hybrid algorithms on graph200.txt. The null hypothesis was that there was no difference in performance between the algorithms.
+Mann-Whitney U tests were performed comparing ACO with the two hybrid algorithms on `graph200.txt`. The null hypothesis was that there was no difference in performance between the algorithms.
 
 At the 5% significance level, the null hypothesis was rejected in both comparisons, with results favouring the hybrid algorithm:
-ACO vs ACO-SA: p = 7.7 x 10<sup>-8</sup>
-ACO vs ACO-SA2: p = 8.9 x 10<sup>-8</sup>
+
+- ACO vs ACO-SA: p = 7.7 x 10<sup>-8</sup>
+- ACO vs ACO-SA2: p = 8.9 x 10<sup>-8</sup>
 
 A further Mann-Whitney U test comparing ACO-SA with ACO-SA2 provided insufficient evidence to conclude that their performance differed at the 5% significance level:
-p = 0.28
+
+- p = 0.28
 
 To conclude, the experimental results indicate that the hybrid algorithms provided the strongest performance among the approaches investigated.
 
